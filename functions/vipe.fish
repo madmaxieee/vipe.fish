@@ -11,13 +11,13 @@ function vipe -d "edit pipe with \$EDITOR"
     touch $tmp_file
 
     if not isatty stdin
-        cat >$tmp_file
+        command cat >$tmp_file
     end
 
     # spawn editor with stdio connected
     $EDITOR $tmp_file </dev/tty >/dev/tty || return $status
 
-    cat $tmp_file
+    command cat $tmp_file
 
     rm $tmp_file
 end
